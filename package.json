@@ -3,6 +3,7 @@
   "displayName": "smoothie",
   "description": "works in coordination with the smoothie cli / wtfdid cli to determine basic info like what file you're focused in",
   "version": "0.0.1",
+  "repository": "https://github.com/Brentably/smoothie-vsc-ext",
   "engines": {
     "vscode": "^1.77.0"
   },
