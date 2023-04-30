@@ -38,8 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
 		socket.on('getFocusedFile', () => {
 			socket.emit('focusedFile', vscode.window.activeTextEditor?.document.uri.fsPath);
 		});
-		socket.on("getSelectedRange", () => {
-			socket.emit('selectedRange', vscode.window.activeTextEditor?.selection);
+		socket.on("getSelectedRangeAndText", () => {
+			const selection = vscode.window.activeTextEditor?.selection;
+			socket.emit('selectedRangeAndText', [selection, vscode.window.activeTextEditor?.document.getText(selection)]);
 		});
 	});
 
