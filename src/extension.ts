@@ -43,6 +43,9 @@ export function activate(context: vscode.ExtensionContext) {
 			const selection = vscode.window.activeTextEditor?.selection;
 			socket.emit('selectedRangeAndText', [selection, vscode.window.activeTextEditor?.document.getText(selection)]);
 		});
+		socket.on('saveFile', () => {
+			vscode.workspace.saveAll();
+		});
 	});
 
 	vscode.window.onDidChangeTerminalState(t => console.log(t));
